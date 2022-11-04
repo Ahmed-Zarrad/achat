@@ -109,7 +109,7 @@
 				</executions>
 			</plugin>
 		</plugins>
-		<finalName>achat</finalName>
+		<finalName>docker-spring-boot</finalName>
 	</build>
 	<distributionManagement>
 		<snapshotRepository>
