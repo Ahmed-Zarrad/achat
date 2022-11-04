@@ -1,4 +1,4 @@
 
 FROM adoptopenjdk/openjdk11
-COPY target/achat.jar achat.jar
-ENTRYPOINT ["java","-jar","/achat.jar"]
+COPY target/achat-1.0.jar achat-1.0.jar
+ENTRYPOINT ["java","-jar","/achat-1.0.jar"]
