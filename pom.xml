@@ -146,7 +146,7 @@
 				</executions>
 			</plugin>
 		</plugins>
-		<finalName>docker-spring-boot</finalName>
+
 	</build>
 	<distributionManagement>
 		<snapshotRepository>
