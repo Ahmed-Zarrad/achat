@@ -16,42 +16,42 @@ pipeline{
 			}
 		}
 
-		stage ("Verification du  version Maven..."){
+		stage ('Verification du  version Maven...'){
 			steps{
-				bat """mvn -version"""
+				sh "mvn -version"
 			}
 		}
 
 		stage ("Clean..."){
 			steps{
-				bat """mvn clean"""
+				sh "mvn clean"
 			}
 			
 		}
 
-		stage ("Creation du livrable..."){
+		stage ('Creation du livrable...'){
 			steps{
-				bat """mvn package -Dmaven.test.skip=true"""
+				sh "mvn package -Dmaven.test.skip=true"
 			}
 		}
 
-		stage ("Lancement des Tests Unitaires..."){
+		stage ('Lancement des Tests Unitaires...'){
 			steps{
-				bat """mvn test"""
+				sh "mvn test"
 			}
 		}
 
-		stage ("Analyse avec Sonar..."){
+		stage ('Analyse avec Sonar...'){
 			steps{
 			withSonarQubeEnv(installationName: 'sonar'){
-				bat """mvn sonar:sonar"""
+				sh "mvn sonar:sonar"
 				}
 			}
 		}
 
-		stage ("Deploiement dans Nexux..."){
+		stage ('Deploiement dans Nexux...'){
 			steps{
-				bat """mvn clean package -Dmaven.test.skip=true -Dmaven.test.failure.ignore=true deploy:deploy-file -DgroupId=tn.esprit.rh -DartifactId=achat -Dversion=1.0 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://localhost:8081/repository/maven-releases/ -Dfile=target/achat-1.0.jar"""
+				sh "mvn clean package -Dmaven.test.skip=true -Dmaven.test.failure.ignore=true deploy:deploy-file -DgroupId=tn.esprit.rh -DartifactId=achat -Dversion=1.0 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://192.168.1.18:8081/repository/maven-releases/ -Dfile=target/achat-1.0.jar"
 			}
 		}
 
@@ -75,7 +75,7 @@ pipeline{
 
 		stage('Cleaning up...'){
 			steps{
-				bat "docker rmi $registry:$BUILD_NUMBER" 
+				sh "docker rmi $registry:$BUILD_NUMBER"
 			}
 		}
 }
