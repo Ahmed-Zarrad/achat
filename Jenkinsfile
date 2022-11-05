@@ -1,7 +1,7 @@
 pipeline{
 	environment{
-		registry = '5SE3/achat_devops'
-		registryCredential= 'dockerHub'
+		registry = 'zarrad/achat'
+		registryCredential= 'dockerId'
 		dockerImage = ''
 	}
 	
