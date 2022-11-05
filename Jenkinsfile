@@ -42,7 +42,9 @@ pipeline{
 
 		stage ("Analyse avec Sonar..."){
 			steps{
+			withSonarQubeEnv(installationName: 'sonar'){
 				bat """mvn sonar:sonar"""
+				}
 			}
 		}
 
