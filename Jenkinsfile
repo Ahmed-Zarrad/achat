@@ -9,7 +9,7 @@ pipeline{
 	stages{
 		stage ('Checkout GIT'){
 			steps{
-				echo 'Pulling....';
+				echo 'Pulling...';
 					git branch: 'main',
 					url : 'https://github.com/Ahmed-Zarrad/achat',
 					credentialsId: '01';
