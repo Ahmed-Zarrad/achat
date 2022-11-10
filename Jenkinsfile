@@ -84,6 +84,12 @@ pipeline{
 				sh "docker rmi $registry:$BUILD_NUMBER"
 			}
 		}
+			stage ('run container'){
+                        steps{
+
+                                            sh 'docker-compose up -d --build'
+                        }
+                    }
 }
 
 	post{
@@ -94,11 +100,6 @@ pipeline{
 			emailext body: 'Build failure', subject: 'Jenkins', to:'ahmed.zarrad@esprit.tn'
 		}
 	}
-	stage ('run container'){
-                steps{
 
-                                    sh 'docker-compose up -d --build'
-                }
-            }
 
 }
