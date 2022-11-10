@@ -37,6 +37,7 @@ pipeline{
 		stage ('Creation du livrable...'){
 			steps{
 				sh "mvn package -Dmaven.test.skip=true"
+				sh 'mvn install'
 			}
 		}
 
@@ -93,4 +94,11 @@ pipeline{
 			emailext body: 'Build failure', subject: 'Jenkins', to:'ahmed.zarrad@esprit.tn'
 		}
 	}
+	stage ('run container'){
+                steps{
+
+                                    sh 'docker-compose up -d --build'
+                }
+            }
+
 }
