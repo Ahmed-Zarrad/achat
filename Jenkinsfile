@@ -57,7 +57,7 @@ pipeline{
 
 		stage ('Deploiement dans Nexux...'){
 			steps{
-				sh "mvn -Dmaven.test.skip=true -Dmaven.test.failure.ignore=true deploy:deploy-file -DgroupId=tn.esprit.rh -DartifactId=achat -Dversion=3.1 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://192.168.1.18:8081/repository/maven-releases/ -Dfile=target/achat-3.1.jar"
+				sh "mvn -Dmaven.test.skip=true -Dmaven.test.failure.ignore=true deploy:deploy-file -DgroupId=tn.esprit.rh -DartifactId=achat -Dversion=3.2 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://192.168.1.18:8081/repository/maven-releases/ -Dfile=target/achat-3.2.jar"
 			}
 		}
 
