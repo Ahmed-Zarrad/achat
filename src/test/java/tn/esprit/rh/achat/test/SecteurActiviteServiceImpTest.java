@@ -60,7 +60,7 @@ public class SecteurActiviteServiceImpTest {
 		
 		// Make sure the Database is not Nulls
 		@Test
-		public void testListMission() {
+		public void testListSecteurActivite() {
 		List<SecteurActivite> e = (List<SecteurActivite>) secteurActiviteRepository.findAll();
 		assertThat(e).size().isPositive();
 		l.info( "> 0");
@@ -72,7 +72,7 @@ public class SecteurActiviteServiceImpTest {
 		//delete a mission (id=2).
 		
 				@Test
-				public void deleteMission() {
+				public void deleteSecteurActivite() {
 					long id = 2;
 					iSecteurActiviteService.deleteSecteurActivite(id);
 				}

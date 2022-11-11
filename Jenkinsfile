@@ -22,9 +22,9 @@ pipeline{
 			}
 		}
 
-		stage ("Clean..."){
+		stage ("Suppression du dossier tareget + Copie du livrable dans le Repository local"){
 			steps{
-				sh "mvn clean"
+				sh "mvn clean install"
 			}
 			
 		}
@@ -34,10 +34,10 @@ pipeline{
                     }
                 }
 
-		stage ('Creation du livrable...'){
+		stage ('Création du livrable dans target'){
 			steps{
-				sh "mvn package -Dmaven.test.skip=true"
-				sh 'mvn install'
+				sh "mvn package"
+
 			}
 		}
 
