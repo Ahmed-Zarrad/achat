@@ -49,15 +49,17 @@ pipeline{
 
 		stage ('Analyse avec Sonar...'){
 			steps{
+			script{
 			withSonarQubeEnv(installationName: 'sonar'){
 				sh "mvn sonar:sonar"
+				    }
 				}
 			}
 		}
 
 		stage ('Deploiement dans Nexux...'){
 			steps{
-				sh "mvn -Dmaven.test.skip=true -Dmaven.test.failure.ignore=true deploy:deploy-file -DgroupId=tn.esprit.rh -DartifactId=achat -Dversion=3.5 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://192.168.1.18:8081/repository/maven-releases/ -Dfile=target/achat-3.5.jar"
+				sh "mvn deploy"
 			}
 		}
 
@@ -79,11 +81,7 @@ pipeline{
 			}
 		}
 
-		stage('Cleaning up...'){
-			steps{
-				sh "docker rmi $registry:$BUILD_NUMBER"
-			}
-		}
+
 			stage ('run container'){
                         steps{
 
