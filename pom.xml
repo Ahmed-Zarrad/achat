@@ -11,7 +11,7 @@
 	<groupId>tn.esprit.rh</groupId>
 	<artifactId>achat</artifactId>
 	<packaging>jar</packaging>
-	<version>4.1</version>
+	<version>3.9-SNAPSHOT</version>
 	<name>achat</name>
 	<description>Projet pour le module DevOps</description>
 	<properties>
@@ -162,7 +162,7 @@
 	</build>
 	<distributionManagement>
 		<snapshotRepository>
-			<id>nexus-snapshots</id>
+			<id>deploymentRepo</id>
 			<url>http://192.168.1.18:8081/repository/maven-snapshots/</url>
 		</snapshotRepository>
 		<repository>

@@ -82,7 +82,7 @@ pipeline{
 		}
 
 
-			stage ('run container'){
+			stage ('docker-compose up'){
                         steps{
 
                                             sh 'docker-compose up -d --build'
