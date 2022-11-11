@@ -11,7 +11,7 @@
 	<groupId>tn.esprit.rh</groupId>
 	<artifactId>achat</artifactId>
 	<packaging>jar</packaging>
-	<version>3.9-SNAPSHOT</version>
+	<version>4.5</version>
 	<name>achat</name>
 	<description>Projet pour le module DevOps</description>
 	<properties>
